@@ -54,4 +54,22 @@ public class JuegoDeCartas {
         // Llamada recursiva para mostrar el menú nuevamente
         mostrarMenu();
     }
+    public static List<String> mazoUno(){
+        List<String> mazoUno = new ArrayList<>();
+        mazoUno.addAll(List.of("Criatura 1", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 2", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 3", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 4", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 5", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 6", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 7", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 8", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 9", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 10", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 11", "2", "2"));
+        mazoUno.addAll(List.of("Criatura 12", "2", "2"));
+
+        return mazoUno;
+    }
 }
+
