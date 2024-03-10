@@ -14,6 +14,13 @@ public class Main {
             // Genera números aleatorios dependiendo de la longitud de la lista.
             int numeroRandom = random.nextInt(mazo.size() / 3 + 1);
             System.out.println("Número aleatorio: " + numeroRandom);
+        }
+        mazoJugable.addAll(List.of(getNombre(numeroRandom,mazo), getFuerza(numeroRandom,mazo), getResistencia(numeroRandom,mazo)));
+        for(int i = 0; i<3; i++) {
+            mazo.remove(numeroRandom*3-2);
+            }
+        }
 
+            return mazoJugable;
         }
     }
