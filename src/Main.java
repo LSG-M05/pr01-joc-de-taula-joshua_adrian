@@ -71,5 +71,32 @@ public class JuegoDeCartas {
 
         return mazoUno;
     }
+
+    public static List<String> mazoDos(){
+        List<String> mazoDos = new ArrayList<>();
+        mazoDos.addAll(List.of("Criatura 1", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 2", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 3", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 4", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 5", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 6", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 7", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 8", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 9", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 10", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 11", "2", "2"));
+        mazoDos.addAll(List.of("Criatura 12", "2", "2"));
+
+        return mazoDos;
+    }
+
+    public static String getFuerza(int numero, List mazo){
+        String fuerza = (String) mazo.get(numero*3-1);
+        return fuerza;
+    }
+    public static String getResistencia(int numero, List mazo){
+        String resistencia = (String) mazo.get(numero*3);
+        return resistencia;
+    }
 }
 
