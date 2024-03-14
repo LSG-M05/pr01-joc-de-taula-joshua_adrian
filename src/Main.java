@@ -9,6 +9,8 @@ public class JuegoDeCartas {
 
     }
     public static void mostrarMenu() {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Menú:");
         System.out.println("1. Jugar");
         System.out.println("2. Ver Cartas/Mazo");
@@ -16,39 +18,58 @@ public class JuegoDeCartas {
         System.out.println("4. Salir");
         System.out.print("Ingrese su opción: ");
 
-        Scanner scanner = new Scanner(System.in);
-        int opcion = scanner.nextInt();
+        // Validar la entrada del usuario
+        if (scanner.hasNextInt()) {
+            int opcion = scanner.nextInt();
+            scanner.nextLine(); // Limpiar el buffer del scanner
 
-        switch (opcion) {
-            case 1:
-                System.out.println("Ha seleccionado Jugar");
+            switch (opcion) {
+                case 1:
+                    System.out.println("Ha seleccionado Jugar");
+                    jugarPartida();
+                    break;
+                case 2:
+                    System.out.println("Ha seleccionado Ver Cartas/Mazo");
+                    System.out.println("Seleccione el mazo que desea ver:");
+                    System.out.println("1. Mazo Uno");
+                    System.out.println("2. Mazo Dos");
+                    System.out.print("Ingrese su opción: ");
 
-                System.out.println("¡Comienza la partida!");
-                //Creacion de Mazos
-                mazoUno();
-                mazoDos();
-                //Reparte Cartas al jugador 1
-                //reparteCartas(mazoUno());
-                //Reparte Cartas al jugador 2
-                //reparteCartas(mazoDos());
+                    if (scanner.hasNextInt()) {
+                        int opcionMazo = scanner.nextInt();
+                        scanner.nextLine(); // Limpiar el buffer del scanner
 
-                System.out.println(reparteCartas(mazoDos()));
-
-                break;
-            case 2:
-                System.out.println("Ha seleccionado Ver Cartas/Mazo");
-                // Aquí puedes agregar la lógica correspondiente a la opción 2
-                break;
-            case 3:
-                System.out.println("Ha seleccionado Reglas");
-                // Aquí puedes agregar la lógica correspondiente a la opción 2
-                break;
-            case 4:
-                System.out.println("Saliendo del programa...");
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Opción no válida. Por favor, ingrese una opción válida.");
+                        switch (opcionMazo) {
+                            case 1:
+                                System.out.println("Mazo Uno:");
+                                mostrarMazo(mazoUno());
+                                break;
+                            case 2:
+                                System.out.println("Mazo Dos:");
+                                mostrarMazo(mazoDos());
+                                break;
+                            default:
+                                System.out.println("Error: Opción de mazo no válida.");
+                        }
+                    } else {
+                        System.out.println("Error: Por favor, ingrese un número válido.");
+                        scanner.nextLine(); // Limpiar el buffer del scanner
+                    }
+                    break;
+                case 3:
+                    System.out.println("Ha seleccionado Reglas");
+                    // Aquí puedes agregar la lógica correspondiente a la opción 3
+                    break;
+                case 4:
+                    System.out.println("Saliendo del programa...");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Error: Opción no válida. Por favor, ingrese una opción del 1 al 4.");
+            }
+        } else {
+            System.out.println("Error: Por favor, ingrese un número válido.");
+            scanner.nextLine(); // Limpiar el buffer del scanner
         }
 
         // Llamada recursiva para mostrar el menú nuevamente
@@ -89,6 +110,35 @@ public class JuegoDeCartas {
 
         return mazoDos;
     }
+
+    public static int elegirCarta(List<String> mazoJugador) {
+        Scanner scanner = new Scanner(System.in);
+        int seleccion;
+
+        do {
+            System.out.println("Seleccione una carta:");
+            for (int i = 0; i < mazoJugador.size(); i += 3) {
+                String nombreCarta = mazoJugador.get(i);
+                String fuerzaCarta = mazoJugador.get(i + 1);
+                String resistenciaCarta = mazoJugador.get(i + 2);
+                System.out.println("(" + (i / 3 + 1) + ") " + nombreCarta + " - Fuerza: " + fuerzaCarta + ", Resistencia: " + resistenciaCarta);
+            }
+            System.out.print("Ingrese el número de la carta: ");
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("Error: Ingrese un número válido.");
+                scanner.next(); // Limpiar el buffer del scanner
+            }
+            seleccion = scanner.nextInt();
+
+            if (seleccion < 1 || seleccion > mazoJugador.size() / 3) {
+                System.out.println("Número de carta no válido. Por favor, ingrese un número válido.");
+            } else {
+                return seleccion - 1;
+            }
+        } while (true);
+    }
+
 
     public static String getFuerza(int numero, List mazo){
         String fuerza = (String) mazo.get(numero*3-1);
