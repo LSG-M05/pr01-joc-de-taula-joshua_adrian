@@ -1,4 +1,4 @@
-#Esto ignoraria todos los archivos y repositorios de la raiz
+# Esto ignoraria todos los archivos y repositorios de la raiz
 *
-#Y esto excluria todos los archivos terminados en .java
+# Y esto excluria todos los archivos terminados en .java
 !*.java
