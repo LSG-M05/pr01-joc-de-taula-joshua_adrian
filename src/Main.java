@@ -77,38 +77,58 @@ public class JuegoDeCartas {
     }
     public static List<String> mazoUno(){
         List<String> mazoUno = new ArrayList<>();
-        mazoUno.addAll(List.of("Criatura 1", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 2", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 3", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 4", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 5", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 6", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 7", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 8", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 9", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 10", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 11", "2", "2"));
-        mazoUno.addAll(List.of("Criatura 12", "2", "2"));
+        //Tier 1 Max 20 puntos
+        mazoUno.addAll(List.of("Gabriel", "10", "10"));
+        mazoUno.addAll(List.of("Michael", "15", "5"));
+        mazoUno.addAll(List.of("Rafael", "7", "13"));
+        mazoUno.addAll(List.of("Uriel", "14", "6"));
+        mazoUno.addAll(List.of("Ariel", "8", "12"));
+        //Tier 2 Max 12 puntos
+        mazoUno.addAll(List.of("Seraphiel", "8", "4"));
+        mazoUno.addAll(List.of("Azrael", "6", "6"));
+        mazoUno.addAll(List.of("Metatron", "9", "3"));
+        mazoUno.addAll(List.of("Raziel", "4", "8"));
+        mazoUno.addAll(List.of("Haniel", "2", "10"));
+        //Tier 3 Max 6 puntos
+        mazoUno.addAll(List.of("Jophiel", "6", "0"));
+        mazoUno.addAll(List.of("Zadkiel", "3", "3"));
+        mazoUno.addAll(List.of("Cassiel", "1", "5"));
+        mazoUno.addAll(List.of("Chamuel", "4", "2"));
+        mazoUno.addAll(List.of("Raguel", "2", "4"));
 
         return mazoUno;
     }
 
     public static List<String> mazoDos(){
         List<String> mazoDos = new ArrayList<>();
-        mazoDos.addAll(List.of("Criatura 1", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 2", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 3", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 4", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 5", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 6", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 7", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 8", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 9", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 10", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 11", "2", "2"));
-        mazoDos.addAll(List.of("Criatura 12", "2", "2"));
-
+        //Tier 1 Max 20 puntos
+        mazoDos.addAll(List.of("Lucifer", "19", "1"));
+        mazoDos.addAll(List.of("Belial", "12", "8"));
+        mazoDos.addAll(List.of("Asmodeus", "15", "5"));
+        mazoDos.addAll(List.of("Mammon", "0", "20"));
+        mazoDos.addAll(List.of("Beelzebub", "17", "3"));
+        //Tier 2 Max 12 puntos
+        mazoDos.addAll(List.of("Abaddon", "6", "6"));
+        mazoDos.addAll(List.of("Leviatán", "6", "6"));
+        mazoDos.addAll(List.of("Baphomet", "8", "4"));
+        mazoDos.addAll(List.of("Astaroth", "3", "9"));
+        mazoDos.addAll(List.of("Lilith", "2", "11"));
+        //Tier 3 Max 6 puntos
+        mazoDos.addAll(List.of("Mephistopheles", "3", "3"));
+        mazoDos.addAll(List.of("Baal", "2", "4"));
+        mazoDos.addAll(List.of("Azazel", "3", "3"));
+        mazoDos.addAll(List.of("Moloch", "4", "2"));
+        mazoDos.addAll(List.of("Nyarlathotep", "4", "2"));
         return mazoDos;
+    }
+    public static List<String> obtenerCartaAleatoria(List<String> mazo) {
+        Random random = new Random();
+        List<String> cartaAleatoria = new ArrayList<>();
+
+        int numeroRandom = random.nextInt(mazo.size() / 3);
+        cartaAleatoria.addAll(List.of(mazo.get(numeroRandom * 3), mazo.get(numeroRandom * 3 + 1), mazo.get(numeroRandom * 3 + 2)));
+
+        return cartaAleatoria;
     }
 
     public static int elegirCarta(List<String> mazoJugador) {
