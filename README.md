@@ -103,7 +103,7 @@ The first player to reach 0 health points loses.
 </div>
 
 ### 📜 Rules
-Each player recieves four cards then every round they will have to pick one to fight with the card stats, after the round players can lose health points depending on the chosen card's stats.
+Each player recieves four cards in the first round then every round they will have to pick one to fight against the enemy's card, after the round players can lose health points depending on the chosen card's stats.
 After each round player will receive a new card so they can have 4 of them for the next round.
 
 
