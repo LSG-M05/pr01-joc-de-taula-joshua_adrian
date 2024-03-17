@@ -2,3 +2,4 @@
 *
 # Y esto excluria todos los archivos terminados en .java
 !*.java
+!/src
